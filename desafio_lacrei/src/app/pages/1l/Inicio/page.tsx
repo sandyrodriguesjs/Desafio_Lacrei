@@ -1,12 +1,34 @@
 "use client";
-import { Button } from "@/app/components/button";
+
+import {
+  BackgroundWrapper,
+  MainContainer,
+  Title,
+  Description,
+  ButtonsRow,
+  SolidButton
+} from "./styles";
 
 export default function Home() {
   return (
-    <div>
-      <h1>Welcome to the Home Page</h1>
-      <p>HomePage</p>
-        <Button>Click Me</Button>
-    </div>
+    <BackgroundWrapper>
+      <MainContainer>
+        <Title>
+          Olá, você está na <br />
+          <span>Lacrei Saúde!</span>
+        </Title>
+
+        <Description>
+          Conectamos pessoas <strong>LGBTQIAPN+</strong> com profissionais da
+          saúde qualificados, proporcionando experiências de cuidado seguras e
+          inclusivas.
+        </Description>
+
+        <ButtonsRow>
+          <SolidButton>Para pacientes</SolidButton>
+          <SolidButton>Para profissionais</SolidButton>
+        </ButtonsRow>
+      </MainContainer>
+    </BackgroundWrapper>
   );
 }
