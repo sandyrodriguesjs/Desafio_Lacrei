@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+
 import {
   Container,
   Content,
@@ -19,20 +21,27 @@ export function Header() {
   return (
     <Container>
       <Content>
-        
-        
         <LogoArea>
-          <Image
-            src="/LogoHeader.svg"
-            width={169}
-            height={48}
-            alt="Lacrei Saúde"
-          />
+          <Link href="/" aria-label="Voltar para a página inicial">
+            <Image
+              src="/LogoHeader.svg"
+              width={169}
+              height={48}
+              alt="Lacrei Saúde"
+              style={{ cursor: "pointer" }}
+            />
+          </Link>
         </LogoArea>
 
         <NavGroup>
-          <ButtonBase>Quem somos</ButtonBase>
-          <ButtonBase>Ajuda</ButtonBase>
+          <Link href="/3l/QuemSomos" passHref>
+            <ButtonBase>Quem somos</ButtonBase>
+          </Link>
+
+          <Link href="https://lacreisaude.com.br/ajuda/" passHref>
+            <ButtonBase>Ajuda</ButtonBase>
+          </Link>
+
           <ButtonPrimary>
             <User size={18} /> Entrar
           </ButtonPrimary>
@@ -43,7 +52,7 @@ export function Header() {
             <HelpCircle size={24} />
           </HelpButton>
 
-          <LoginIconButton aria-label="abrir opções de entrada">
+          <LoginIconButton aria-label="entrar">
             <User size={24} />
           </LoginIconButton>
         </MobileButtons>
