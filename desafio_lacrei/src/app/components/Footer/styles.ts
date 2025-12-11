@@ -106,13 +106,19 @@ export const SocialIcons = styled.div`
   gap: 16px;
 `;
 
-export const SocialButton = styled.a`
+export const SocialButton = styled.button`
   width: 48px;
   height: 48px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  background: none;
+  border: none;
+  cursor: pointer;
 `;
+
 
 
 export const LegalText = styled.p`

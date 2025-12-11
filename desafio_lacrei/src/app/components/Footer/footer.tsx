@@ -41,17 +41,38 @@ export function Footer() {
             <a href="#">Termos de Uso</a>
           </Links>
 
-          <BackToTopDesktop onClick={handleScrollTop}>
+          <BackToTopDesktop onClick={handleScrollTop} aria-label="Voltar ao topo da página">
             <ChevronUp size={24} color="#018762" />
           </BackToTopDesktop>
         </TopRow>
 
         <SocialRow>
           <SocialIcons>
-            <SocialButton><Facebook size={24} color="#018762" /></SocialButton>
-            <SocialButton><Instagram size={24} color="#018762" /></SocialButton>
-            <SocialButton><Linkedin size={24} color="#018762" /></SocialButton>
-            <SocialButton><Mail size={24} color="#018762" /></SocialButton>
+            <SocialButton>
+              <Facebook size={24}
+                color="#018762"
+                onClick={() => window.open("https://www.facebook.com", "_blank")}
+                aria-label="Visitar nosso Facebook" />
+            </SocialButton>
+            <SocialButton>
+              <Instagram size={24}
+                color="#018762"
+                onClick={() => window.open("https://www.instagram.com", "_blank")}
+                aria-label="Visitar nosso Instagram" />
+            </SocialButton>
+            <SocialButton><Linkedin
+              size={24}
+              color="#018762"
+              onClick={() => window.open("https://www.linkedin.com", "_blank")}
+              aria-label="Visitar nosso Linkedin" />
+            </SocialButton>
+            <SocialButton>
+              <Mail
+                size={24}
+                color="#018762"
+                onClick={() => window.open("https://mail.google.com/mail", "_blank")}
+                aria-label="Envie-nos um email" />
+            </SocialButton>
           </SocialIcons>
 
           <LegalText className="desktop-only">
@@ -62,7 +83,7 @@ export function Footer() {
         <SocialAndCnpjRow>
           <LegalText>CNPJ: 51.265.351/0001-65</LegalText>
 
-          <BackToTopMobile onClick={handleScrollTop}>
+          <BackToTopMobile onClick={handleScrollTop} aria-label="Voltar ao topo da página">
             <ChevronUp size={24} color="#018762" />
           </BackToTopMobile>
         </SocialAndCnpjRow>
