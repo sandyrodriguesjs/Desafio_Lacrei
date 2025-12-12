@@ -4,12 +4,10 @@ import "@testing-library/jest-dom";
 import { Header } from "./header";
 import { useRouter } from "next/navigation";
 
-// Mock do router
 jest.mock("next/navigation", () => ({
   useRouter: jest.fn(),
 }));
 
-// Mock do Link para simular navegação
 jest.mock("next/link", () => {
   return ({ href, children }: any) => (
     <a
@@ -35,7 +33,7 @@ describe("Header Component", () => {
     });
   });
 
-  test("deve navegar ao clicar no logo", async () => {
+  test("You must navigate by clicking on the logo.", async () => {
     render(<Header />);
 
     const logo = screen.getByAltText("Lacrei Saúde");
