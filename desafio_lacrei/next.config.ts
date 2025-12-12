@@ -6,6 +6,10 @@ const nextConfig: NextConfig = {
 
   compiler: {
     styledComponents: true
+  },
+
+  turbopack: {
+    root: "./"
   }
 };
 
