@@ -5,7 +5,7 @@ import { Footer } from "./footer";
 
 jest.mock("next/image", () => ({
     __esModule: true,
-    default: ({ src, alt, ...props }: any) => {
+    default: ({ src, alt, priority, ...props }: any) => {
         return <img src={src} alt={alt} {...props} />;
     },
 }));
