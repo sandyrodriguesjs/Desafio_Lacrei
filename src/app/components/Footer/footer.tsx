@@ -1,5 +1,6 @@
 "use client";
 
+import { memo, useCallback } from "react";
 import Image from "next/image";
 import {
   Container,
@@ -18,20 +19,21 @@ import {
 
 import { Facebook, Instagram, Linkedin, Mail, ChevronUp } from "lucide-react";
 
-export function Footer() {
-  const handleScrollTop = () =>
+function FooterComponent() {
+  const handleScrollTop = useCallback(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   return (
     <Container>
       <Content>
-
         <TopRow>
           <Image
             src="/LogoFooter.svg"
             width={159}
             height={48}
             alt="Logo Lacrei Saúde"
+            priority={false}
           />
 
           <Links>
@@ -41,37 +43,50 @@ export function Footer() {
             <a href="#">Termos de Uso</a>
           </Links>
 
-          <BackToTopDesktop onClick={handleScrollTop} aria-label="Voltar ao topo da página">
+          <BackToTopDesktop
+            onClick={handleScrollTop}
+            aria-label="Voltar ao topo da página"
+          >
             <ChevronUp size={24} color="#018762" />
           </BackToTopDesktop>
         </TopRow>
 
         <SocialRow>
           <SocialIcons>
-            <SocialButton>
-              <Facebook size={24}
-                color="#018762"
-                onClick={() => window.open("https://www.facebook.com", "_blank")}
-                aria-label="Visitar nosso Facebook" />
+            <SocialButton as="a"
+              href="https://www.facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visitar nosso Facebook"
+            >
+              <Facebook size={24} color="#018762" />
             </SocialButton>
-            <SocialButton>
-              <Instagram size={24}
-                color="#018762"
-                onClick={() => window.open("https://www.instagram.com", "_blank")}
-                aria-label="Visitar nosso Instagram" />
+
+            <SocialButton as="a"
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visitar nosso Instagram"
+            >
+              <Instagram size={24} color="#018762" />
             </SocialButton>
-            <SocialButton><Linkedin
-              size={24}
-              color="#018762"
-              onClick={() => window.open("https://www.linkedin.com", "_blank")}
-              aria-label="Visitar nosso Linkedin" />
+
+            <SocialButton as="a"
+              href="https://www.linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visitar nosso Linkedin"
+            >
+              <Linkedin size={24} color="#018762" />
             </SocialButton>
-            <SocialButton>
-              <Mail
-                size={24}
-                color="#018762"
-                onClick={() => window.open("https://mail.google.com/mail", "_blank")}
-                aria-label="Envie-nos um email" />
+
+            <SocialButton as="a"
+              href="https://mail.google.com/mail"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Envie-nos um email"
+            >
+              <Mail size={24} color="#018762" />
             </SocialButton>
           </SocialIcons>
 
@@ -83,14 +98,18 @@ export function Footer() {
         <SocialAndCnpjRow>
           <LegalText>CNPJ: 51.265.351/0001-65</LegalText>
 
-          <BackToTopMobile onClick={handleScrollTop} aria-label="Voltar ao topo da página">
+          <BackToTopMobile
+            onClick={handleScrollTop}
+            aria-label="Voltar ao topo da página"
+          >
             <ChevronUp size={24} color="#018762" />
           </BackToTopMobile>
         </SocialAndCnpjRow>
 
         <Divider />
-
       </Content>
     </Container>
   );
 }
+
+export const Footer = memo(FooterComponent);

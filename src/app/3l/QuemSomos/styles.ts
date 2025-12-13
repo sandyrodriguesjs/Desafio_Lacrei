@@ -8,16 +8,19 @@ export const Wrapper = styled.section`
   justify-content: center;
 
   padding: 64px 0;
+
+  min-height: 520px;
+  contain: layout paint;
 `;
 
 export const Content = styled.div`
   width: 100%;
-  max-width: 1400px; 
+  max-width: 1400px;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 64px; 
+  gap: 64px;
 
   padding: 0 64px;
 
@@ -30,7 +33,7 @@ export const Content = styled.div`
 `;
 
 export const TextBlock = styled.div`
-  max-width: 600px; 
+  max-width: 600px;
 
   display: flex;
   flex-direction: column;
@@ -42,12 +45,6 @@ export const Title = styled.h1`
   font-weight: 700;
   color: #2d2d2d;
   line-height: 44px;
-
-  @media (max-width: 900px) {
-    font-size: 28px;
-    line-height: 36px;
-    text-align: center;
-  }
 `;
 
 export const Description = styled.p`
@@ -57,22 +54,13 @@ export const Description = styled.p`
 `;
 
 export const ImageBlock = styled.div`
-  flex: 1; 
+  flex: 1;
+  max-width: 560px;
+  width: 100%;
 
-  display: flex;
-  justify-content: center;
+  position: relative;
+  aspect-ratio: 4 / 3;
 
-  img {
-    width: 100%;
-    max-width: 560px; 
-    height: auto;
-    border-radius: 16px;
-    object-fit: cover;
-  }
-
-  @media (max-width: 900px) {
-    img {
-      max-width: 100%;
-    }
-  }
+  border-radius: 16px;
+  overflow: hidden;
 `;

@@ -37,11 +37,12 @@ export default function EscolhaDaPessoaPage() {
         </MainContainer>
 
         <Image
-          src="/EscolhaDaPessoa.svg"
+          src="/Escolha-da-Pessoa.webp"
           alt="Profissionais de saúde"
           width={480}
           height={600}
-          style={{ objectFit: "cover" }}
+          sizes="(max-width: 900px) 100vw, 480px"
+          style={{ objectFit: "cover", display: "block" }}
         />
       </BackgroundWrapper>
     </>

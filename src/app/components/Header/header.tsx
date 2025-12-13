@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -17,7 +18,7 @@ import {
 
 import { User, HelpCircle } from "lucide-react";
 
-export function Header() {
+function HeaderComponent() {
   return (
     <Container>
       <Content>
@@ -28,17 +29,21 @@ export function Header() {
               width={169}
               height={48}
               alt="Lacrei Saúde"
-              style={{ cursor: "pointer" }}
+              priority={false}
             />
           </Link>
         </LogoArea>
 
         <NavGroup>
-          <Link href="/3l/QuemSomos" passHref>
+          <Link href="/3l/QuemSomos">
             <ButtonBase>Quem somos</ButtonBase>
           </Link>
 
-          <Link href="https://lacreisaude.com.br/ajuda/" passHref>
+          <Link
+            href="https://lacreisaude.com.br/ajuda/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <ButtonBase>Ajuda</ButtonBase>
           </Link>
 
@@ -56,8 +61,9 @@ export function Header() {
             <User size={24} />
           </LoginIconButton>
         </MobileButtons>
-
       </Content>
     </Container>
   );
 }
+
+export const Header = memo(HeaderComponent);

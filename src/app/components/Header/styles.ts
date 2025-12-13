@@ -1,13 +1,12 @@
 import styled from "styled-components";
 
-/* ================= HEADER WRAPPER ================= */
 export const Container = styled.header`
   width: 100%;
+  min-height: 96px;
   background: #ffffff;
   border-bottom: 1px solid #eeeeee;
 `;
 
-/* Área com limite de largura */
 export const Content = styled.div`
   width: 100%;
   max-width: 1440px;
@@ -20,23 +19,23 @@ export const Content = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  /* MOBILE */
+  contain: layout paint;
+
   @media (max-width: 768px) {
     padding: 24px 16px;
     height: auto;
   }
 `;
 
-/* LOGO DESKTOP */
 export const LogoArea = styled.div`
   display: flex;
   align-items: center;
 
   img {
     height: 48px;
+    width: 169px;
   }
 
-  /* MOBILE → Logo menor */
   @media (max-width: 768px) {
     img {
       width: 133.67px;
@@ -45,18 +44,16 @@ export const LogoArea = styled.div`
   }
 `;
 
-/* NAV DESKTOP */
 export const NavGroup = styled.div`
   display: flex;
   align-items: center;
   gap: 24px;
 
   @media (max-width: 768px) {
-    display: none; /* Esconde Quem somos / Ajuda no mobile */
+    display: none;
   }
 `;
 
-/* BOTÕES DESKTOP */
 export const ButtonBase = styled.button`
   display: inline-flex;
   align-items: center;
@@ -88,7 +85,6 @@ export const ButtonPrimary = styled(ButtonBase)`
   color: #ffffff;
 `;
 
-/* ================= MOBILE BUTTON ROW ================= */
 export const MobileButtons = styled.div`
   display: none;
 
@@ -99,7 +95,6 @@ export const MobileButtons = styled.div`
   }
 `;
 
-/* BOTÃO AJUDA (ghost) */
 export const HelpButton = styled.button`
   width: 48px;
   height: 48px;
@@ -114,7 +109,6 @@ export const HelpButton = styled.button`
   cursor: pointer;
 `;
 
-/* BOTÃO ENTRAR MOBILE (primário ícone-only) */
 export const LoginIconButton = styled.button`
   width: 48px;
   height: 48px;
@@ -131,3 +125,9 @@ export const LoginIconButton = styled.button`
 
   cursor: pointer;
 `;
+
+
+
+
+
+

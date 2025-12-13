@@ -2,28 +2,32 @@ import styled from "styled-components";
 
 export const BackgroundWrapper = styled.section`
   width: 100%;
-  min-height: 80vh;
-
-  background-image: url("/BackgroundHome.png");
+  height: 80vh;
+  
+  background-color: #f5f5f5;
+  background-image: url("/BackgroundHome.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
+  contain: layout paint;
+
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: flex-start;
 
   padding: 80px 120px;
 
   @media (max-width: 1024px) {
-    flex-direction: column;
     padding: 40px 24px;
     text-align: center;
+    justify-content: center;
   }
 `;
 
 export const MainContainer = styled.div`
   max-width: 550px;
+
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -49,7 +53,7 @@ export const Description = styled.p`
   max-width: 520px;
 
   strong {
-    color: #000000ff;
+    color: #000000;
   }
 
   @media (max-width: 1024px) {

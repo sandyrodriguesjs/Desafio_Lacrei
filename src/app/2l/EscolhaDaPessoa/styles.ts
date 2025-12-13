@@ -12,16 +12,36 @@ export const BackgroundWrapper = styled.section`
 
   padding: 64px 96px;
 
+  /* Garantir que a área da imagem reserve espaço e não provoque CLS */
+  & > img,
+  & > span {
+    display: block;
+    flex: 0 0 480px;
+    width: 480px;
+    height: auto;
+    min-width: 480px;
+  }
+
   @media (max-width: 900px) {
     flex-direction: column;
     padding: 32px 24px;
     text-align: center;
+
+    & > img,
+    & > span {
+      flex: 0 0 auto;
+      width: 100%;
+      min-width: 0;
+      height: auto;
+      margin-top: 24px;
+    }
   }
 `;
 
 
 export const MainContainer = styled.div`
   max-width: 520px;
+  flex: 0 1 520px;
   display: flex;
   flex-direction: column;
   gap: 24px;
