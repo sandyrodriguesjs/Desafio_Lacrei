@@ -29,6 +29,11 @@ export const colorTextHeading = css`
   color: ${colors.gray80};
 `;
 
+export const colorTextBody = css`
+  color: ${colors.gray70};
+`;
+
+
 export const colorTextAccent = css`
   color: ${colors.emerald60};
 `;
@@ -37,3 +42,7 @@ export const colorTextAccent = css`
 export const colorBorderHover = colors.emerald50;
 
 export const colorBorderDivider = colors.emerald20;
+
+export const colorBrandPrimary = css`
+  color: ${colors.emerald60};
+`;

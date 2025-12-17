@@ -5,13 +5,16 @@ import {
   spacingL,
   spacingM,
 } from "../../designTokens/spacing";
-import { colorBackgroundDefault, colorTextHeading } from "../../designTokens/colorTokens";
+import { colorBackgroundDefault, colorTextHeading, colorTextBody } from "../../designTokens/colorTokens";
+import { headlineXl, textXl } from "../../designTokens/tipography";
 
 export const BackgroundWrapper = styled.section`
   width: 100%;
   min-height: 80vh;
 
   ${colorBackgroundDefault};
+
+  contain: layout paint;
 
   display: flex;
   justify-content: space-between;
@@ -24,8 +27,9 @@ export const BackgroundWrapper = styled.section`
     display: block;
     flex: 0 0 480px;
     width: 480px;
+    max-width: 100%;
     height: auto;
-    min-width: 480px;
+    min-width: 0; /* allow shrinking on small screens */
   }
 
   @media (max-width: 900px) {
@@ -33,6 +37,9 @@ export const BackgroundWrapper = styled.section`
 
     padding: ${spacingL} ${spacingM};
     text-align: center;
+
+    /* remove large background images on small screens to reduce paint */
+    background-image: none;
 
     & > img,
     & > span {
@@ -59,9 +66,7 @@ export const MainContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 48px;
-  line-height: 56px;
-  font-weight: 700;
+  ${headlineXl};
   ${colorTextHeading};
 
   @media (max-width: 900px) {
@@ -72,10 +77,9 @@ export const Title = styled.h1`
 `;
 
 export const Description = styled.p`
-  font-size: 18px;
-  line-height: 26px;
-  color: #4d4d4d;
+  ${textXl};
   max-width: 520px;
+  ${colorTextBody};
 
   @media (max-width: 900px) {
     text-align: center;

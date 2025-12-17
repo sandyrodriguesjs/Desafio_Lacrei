@@ -8,11 +8,15 @@ import { Footer } from "@components/Footer/footer";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -23,18 +27,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        style={{
-          minHeight: "100vh",
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Header />
-        <main style={{ flex: 1 }}>
-          {children}
-        </main>
+        <main style={{ flex: 1 }}>{children}</main>
         <Footer />
       </body>
     </html>

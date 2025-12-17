@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, useCallback } from "react";
+import { memo, useCallback, useState, useEffect } from "react";
 import Image from "next/image";
 import {
   Container,
@@ -20,8 +20,23 @@ import {
 import { Facebook, Instagram, Linkedin, Mail, ChevronUp } from "lucide-react";
 
 function FooterComponent() {
+  const [isMobile, setIsMobile] = useState(false);
+  const [isLogoLoaded, setIsLogoLoaded] = useState(false);
+
   const handleScrollTop = useCallback(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
+  // Detecta mobile para otimização
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   return (
@@ -29,19 +44,35 @@ function FooterComponent() {
       <Content>
         <Divider />
         <TopRow>
-          <Image
-            src="/LogoFooter.svg"
-            width={159}
-            height={48}
-            alt="Logo Lacrei Saúde"
-            priority={false}
-          />
+          {/* Otimização da imagem para LCP */}
+          <div style={{
+            width: isMobile ? "120px" : "159px",
+            height: isMobile ? "36px" : "48px",
+            position: "relative",
+            opacity: isLogoLoaded ? 1 : 0,
+            transition: "opacity 0.3s ease-in",
+            willChange: "opacity"
+          }}>
+            <Image
+              src="/LogoFooter.svg"
+              fill
+              sizes="(max-width: 768px) 120px, 159px"
+              alt="Logo Lacrei Saúde"
+              priority={false}
+              loading={isMobile ? "eager" : "lazy"}
+              onLoad={() => setIsLogoLoaded(true)}
+              style={{
+                objectFit: "contain",
+                objectPosition: "left center"
+              }}
+            />
+          </div>
 
           <Links>
-            <a href="#">Lacrei Saúde</a>
-            <a href="#">Pessoas Profissionais</a>
-            <a href="#">Política de Privacidade</a>
-            <a href="#">Termos de Uso</a>
+            <a href="#" aria-label="Saiba mais sobre a Lacrei Saúde">Lacrei Saúde</a>
+            <a href="#" aria-label="Profissionais da Lacrei Saúde">Pessoas Profissionais</a>
+            <a href="#" aria-label="Política de privacidade">Política de Privacidade</a>
+            <a href="#" aria-label="Termos de uso">Termos de Uso</a>
           </Links>
 
           <BackToTopDesktop
@@ -60,7 +91,7 @@ function FooterComponent() {
               rel="noopener noreferrer"
               aria-label="facebook site externo - abrirá uma nova janela"
             >
-              <Facebook size={24} />
+              <Facebook size={isMobile ? 20 : 24} />
             </SocialButton>
 
             <SocialButton as="a"
@@ -69,7 +100,7 @@ function FooterComponent() {
               rel="noopener noreferrer"
               aria-label="instagram site externo - abrirá uma nova janela"
             >
-              <Instagram size={24} />
+              <Instagram size={isMobile ? 20 : 24} />
             </SocialButton>
 
             <SocialButton as="a"
@@ -78,7 +109,7 @@ function FooterComponent() {
               rel="noopener noreferrer"
               aria-label="linkedin site externo - abrirá uma nova janela"
             >
-              <Linkedin size={24} />
+              <Linkedin size={isMobile ? 20 : 24} />
             </SocialButton>
 
             <SocialButton as="a"
@@ -87,7 +118,7 @@ function FooterComponent() {
               rel="noopener noreferrer"
               aria-label="e-mail site externo - abrirá uma nova janela com seu e-mail como remetente e a Lacrei saúde como destinatário"
             >
-              <Mail size={24} />
+              <Mail size={isMobile ? 20 : 24} />
             </SocialButton>
           </SocialIcons>
 
@@ -103,7 +134,7 @@ function FooterComponent() {
             onClick={handleScrollTop}
             aria-label="Voltar ao topo da página"
           >
-            <ChevronUp size={24} color="#018762" />
+            <ChevronUp size={isMobile ? 20 : 24} color="#018762" />
           </BackToTopMobile>
         </SocialAndCnpjRow>
 

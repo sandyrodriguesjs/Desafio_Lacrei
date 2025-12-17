@@ -30,12 +30,14 @@ function HeaderComponent() {
               height={48}
               alt="Lacrei Saúde"
               priority={false}
+              loading="eager"
+              decoding="async"
             />
           </Link>
         </LogoArea>
 
         <NavGroup>
-          <Link href="/3l/QuemSomos">
+          <Link href="">
             <ButtonBase>Quem somos</ButtonBase>
           </Link>
 

@@ -42,8 +42,16 @@ export default function EscolhaDaPessoaPage() {
           width={480}
           height={600}
           sizes="(max-width: 900px) 100vw, 480px"
-          style={{ objectFit: "cover", display: "block" }}
+          placeholder="blur"
+          blurDataURL="/Escolha-da-Pessoa-blur.webp"
+          loading="lazy"
+          quality={70}
+          style={{
+            objectFit: "cover",
+            display: "block"
+          }}
         />
+
       </BackgroundWrapper>
     </>
   );

@@ -11,7 +11,6 @@ import {
   ButtonsRow,
 } from "./styles";
 
-// Skeleton estável (fora do render)
 const ButtonSkeleton = () => (
   <div
     aria-hidden

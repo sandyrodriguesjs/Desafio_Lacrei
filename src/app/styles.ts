@@ -1,10 +1,31 @@
 import styled from "styled-components";
 
+
+import {
+  headlineXl,
+  headlineLg,
+  textXl,
+  textBase,
+} from "../app/designTokens/tipography";
+import {
+  colorBrandPrimary,
+  colorTextBody,
+  colorTextHeading,
+  colorBackgroundDefault
+} from "./designTokens/colorTokens";
+
+import {
+  spacingLayoutXl,
+  spacingLayoutL,
+  spacingL,
+  spacingM,
+} from "../app/designTokens/spacing";
+
 export const BackgroundWrapper = styled.section`
   width: 100%;
-  height: 80vh;
-  
-  background-color: #f5f5f5;
+  min-height: 80vh;
+
+  ${colorBackgroundDefault};
   background-image: url("/BackgroundHome.webp");
   background-size: cover;
   background-position: center;
@@ -16,54 +37,63 @@ export const BackgroundWrapper = styled.section`
   align-items: center;
   justify-content: flex-start;
 
-  padding: 80px 120px;
+  padding: ${spacingLayoutL} ${spacingLayoutXl};
 
   @media (max-width: 1024px) {
-    padding: 40px 24px;
-    text-align: center;
+    padding: ${spacingL} ${spacingM};
     justify-content: center;
+    text-align: center;
   }
 `;
 
 export const MainContainer = styled.div`
-  max-width: 550px;
+  max-width: 560px;
 
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: ${spacingM};
 `;
 
+/* --------------------------------
+ * TITLE
+ * -------------------------------- */
 export const Title = styled.h1`
-  font-size: 48px;
-  line-height: 56px;
-  font-weight: 700;
-  color: #018762;
+  ${headlineXl};
+  ${colorBrandPrimary};
+  max-width: 14ch;
 
   @media (max-width: 1024px) {
-    font-size: 38px;
-    line-height: 44px;
+    ${headlineLg};
     text-align: center;
+     max-width: 100%;
   }
 `;
 
+/* --------------------------------
+ * DESCRIPTION
+ * -------------------------------- */
 export const Description = styled.p`
-  font-size: 20px;
-  line-height: 30px;
-  color: #444;
+  ${textXl};
+  ${colorTextBody};
   max-width: 520px;
 
   strong {
-    color: #000000;
+    ${colorTextHeading};
+    font-weight: 600;
   }
 
   @media (max-width: 1024px) {
+    ${textBase};
     text-align: center;
   }
 `;
 
+/* --------------------------------
+ * BUTTONS
+ * -------------------------------- */
 export const ButtonsRow = styled.div`
   display: flex;
-  gap: 24px;
+  gap: ${spacingM};
 
   @media (max-width: 480px) {
     flex-direction: column;
