@@ -162,9 +162,7 @@ Comandos úteis para execução:
 ```bash
 npm test
 
-
 npx jest src/app/components/Footer/footer.test.tsx
-
 
 npx jest -t "Voltar ao topo da página"
 
@@ -180,6 +178,29 @@ npx jest --coverage
 * **React Testing Library** foi utilizada por testar o comportamento do componente do ponto de vista do usuário. 
 * Uso de **rotas por pasta (App Router)** simplifica a estrutura e deixa o projeto mais alinhado com o padrão moderno do Next.js.
 ---
+
+## Testes Básicos com Leitor de Tela
+
+Foram realizados **testes manuais básicos com leitor de tela** para validar a acessibilidade da aplicação, com foco em navegação, leitura de conteúdo e identificação correta de elementos interativos.
+
+### Ferramenta Utilizada
+
+- **NVDA (Windows)** 
+
+### Cenários Testados
+
+- Leitura correta do **título principal (`<h1>`)** em cada página
+- Navegação por landmarks semânticos (`header`, `main`, `footer`)
+- Identificação correta de links e botões
+- Verificação de botões apenas com ícone por meio de `aria-label`
+- Leitura adequada de links externos e ações principais
+
+### Resultados
+
+- O leitor de tela anunciou corretamente os títulos das páginas
+- As áreas de navegação foram identificadas corretamente
+- Botões e links apresentaram descrições claras e compreensíveis
+
 
 ## Estratégia de Rollback (Vercel)
 
