@@ -18,6 +18,8 @@ import {
 } from "./styles";
 
 import { Facebook, Instagram, Linkedin, Mail, ChevronUp } from "lucide-react";
+import { colors } from "../../designTokens/colors";
+
 
 function FooterComponent() {
   const [isMobile, setIsMobile] = useState(false);
@@ -92,7 +94,7 @@ function FooterComponent() {
             onClick={handleScrollTop}
             aria-label="Voltar ao topo da página"
           >
-            <ChevronUp size={24} aria-hidden="true" />
+            <ChevronUp size={24} aria-hidden="true" color={`${colors.emerald60}`} />
           </BackToTopDesktop>
         </TopRow>
 
@@ -156,7 +158,7 @@ function FooterComponent() {
             onClick={handleScrollTop}
             aria-label="Voltar ao topo da página"
           >
-            <ChevronUp size={isMobile ? 20 : 24} aria-hidden="true" />
+            <ChevronUp size={isMobile ? 20 : 24} aria-hidden="true" color={`${colors.emerald60}`} />
           </BackToTopMobile>
         </SocialAndCnpjRow>
 
